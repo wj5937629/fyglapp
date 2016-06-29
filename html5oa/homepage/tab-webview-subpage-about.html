@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+		
+		<style>
+			html,body {
+				background-color: #efeff4;
+			}
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-content">
+			<!--<div class="title">
+				<p>这是webview模式选项卡的第1个子页面</p>
+				<p>何谓webview模式？其实就是每个选项卡内容都是一个独立的webview，彼此之间互相独立、互不影响；
+					对于较为复杂的业务系统，推荐使用该模式。</p>
+				<p>基于webview模式的选项卡，支持原生加速的下拉刷新，点击第二个选项卡（“消息”），切换选项卡，体验下拉刷新；</p>
+			</div>-->
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a id="fysp">
+		                    <span class="mui-icon  iconfont icon-liuchengshenpi"></span>
+		                    <div class="mui-media-body">费用审批</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a id="xjsp">
+		                    <span class="mui-icon iconfont icon-xinzengjihua"><!--<span class="mui-badge">5</span>--></span>
+		                    <div class="mui-media-body">费用申请</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a id="ysfx">
+		                    <span class="mui-icon iconfont icon-yusuanfenxi"></span>
+		                    <div class="mui-media-body">预算查看</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a id="taskmanager">
+		                    <span class="mui-icon iconfont icon-renwu"></span>
+		                    <div class="mui-media-body">任务管理</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a href="#">
+		                    <span class="mui-icon iconfont icon-gongzuorizhi"></span>
+		                    <div class="mui-media-body">工作日志</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-5"><a href="#">
+		                    <span class="mui-icon iconfont icon-richeng"></span>
+		                    <div class="mui-media-body">日程安排</div></a></li>
+			</ul> 
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/ip.js" ></script>
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		document.getElementById("fysp").addEventListener('tap',function()
+		{
+			//alert('http://'+ip+'/lajpoa/m/index.php?ac=workclass&fileurl=plugin');
+			mui.openWindow({
+				url:'tab-about-fysp.html',
+				id:'tab-about-fysp',
+				show:{
+					aniShow: 'pop-in'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+		},false);
+		
+		document.getElementById("xjsp").addEventListener('tap',function()
+		{
+			      //显示原生等待框
+				var nwaiting = plus.nativeUI.showWaiting();
+				//后台创建webview并打开workclass_view.html
+			    webviewShow = plus.webview.create("tab-about-xjsp.html","tab-about-xjsp",null);
+			    //因后台需要ajax加载完数据之后jquery.mobile渲染,因此载入webview事件需延迟一些时间			    
+			    	webviewShow.addEventListener("loaded", function() { //注册新webview的载入完成事件
+			        setTimeout(function(){
+				        nwaiting.close(); //新webview的载入完毕后关闭等待框
+				        webviewShow.show("slide-in-right",150); //把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+				      },500);
+			    	}, false);
+						  
+		},false);
+		
+		//预算查看
+		document.getElementById("ysfx").addEventListener('tap',function()
+		{
+			      //显示原生等待框
+				var nwaiting = plus.nativeUI.showWaiting();
+				//后台创建webview并打开workclass_view.html
+			    webviewShow = plus.webview.create("tab-about-ysfx.html","tab-about-ysfx",null);
+			    //因后台需要ajax加载完数据之后jquery.mobile渲染,因此载入webview事件需延迟一些时间			    
+			    	webviewShow.addEventListener("loaded", function() { //注册新webview的载入完成事件
+			        setTimeout(function(){
+				        nwaiting.close(); //新webview的载入完毕后关闭等待框
+				        webviewShow.show("slide-in-right",150); //把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+				      },500);
+			    	}, false);
+						  
+		},false);
+		
+		//任务管理
+		document.getElementById("taskmanager").addEventListener('tap',function()
+		{
+			      //显示原生等待框
+				var nwaiting = plus.nativeUI.showWaiting();
+				//后台创建webview并打开workclass_view.html
+			    webviewShow = plus.webview.create("tab-about-taskmanager.html","tab-about-taskmanager",null);
+			    //因后台需要ajax加载完数据之后jquery.mobile渲染,因此载入webview事件需延迟一些时间			    
+			    	webviewShow.addEventListener("loaded", function() { //注册新webview的载入完成事件
+			        setTimeout(function(){
+				        nwaiting.close(); //新webview的载入完毕后关闭等待框
+				        webviewShow.show("slide-in-right",150); //把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+				      },500);
+			    	}, false);
+						  
+		},false);
+	</script>
+</html>

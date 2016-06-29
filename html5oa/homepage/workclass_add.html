@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<!--<link rel="stylesheet" href="../css/jquery.mobile-1.4.0.min.css">-->
+	<link rel="stylesheet" href="../css/list.css">
+	<link rel="stylesheet" href="../css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+	
+	<style type="text/css">
+		.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 2px;
+			}
+		.mui-content{
+			margin-top: 10px;
+		}
+		.mui-btn-block{
+				width: 90%;
+				margin-left: 5%;
+			}
+		.mui-input-group{
+			width: 90%;
+			margin-left: 5%;
+		}
+		h4{
+			font-weight: 400;
+			color: #8f8f94
+		}
+		h5.mui-content-padded {
+				margin-left: 5%;
+				margin-top: 20px !important;
+			}
+		h5.mui-content-padded:first-child {
+			margin-top: 12px !important;
+		}
+	</style>
+	
+</head>
+<body id="workclass_body">
+				
+<script src="../js/mui.min.js"></script>
+ <script type="text/javascript" src="../js/app.js" ></script>
+ <script type="text/javascript" src="../js/ip.js" ></script>
+ <script src="../js/jquery.js"></script>
+ <script src="../js/mui.picker.min.js"></script>
+ <script>
+ 	mui.plusReady(function(){
+      		var self=plus.webview.currentWebview();
+      		var id=self.splid;
+      		var typeid=self.typeid;
+//    		alert(id+":typeid:"+typeid);
+      		
+      		mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+						data:{
+							tplid:id,
+							ac:'workadd',
+							fileurl:'plugin',
+							typeid:typeid
+						},
+						type:'post',
+						timeout:10000,
+						contentType:"application/x-www-form-urlencoded; charset=utf-8",
+						success:function(data)
+						{
+							//alert(data);
+								document.getElementById("workclass_body").innerHTML=data;
+						},
+						error:function(xhr,type,errorThrown) {
+							plus.nativeUI.showWaiting().close();
+							mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+						}
+						
+					});
+      
+      	//延迟500ms之后执行$(document).ready()事件获取相应的标签
+      	setTimeout(function(){
+      		$(document).ready(function(){
+      			if(document.getElementById("bcsp")!=null){
+			      			document.getElementById("bcsp").addEventListener('tap',function(){
+							var datas={tplid:id,ac:'workadd',fileurl:'plugin',typeid:typeid,do:'add'};
+							//获取标题
+							if(document.getElementById("numtitle")!=null){
+								var numtitle=document.getElementById("numtitle").innerHTML;
+								datas.title=numtitle;
+							}
+							//获取借款类型
+							if(document.getElementsByName('_11_3_type[]')!=null){
+								var radiobj=document.getElementsByName('_11_3_type[]');
+								for(var i=0;i<radiobj.length;i++){
+									if(radiobj[i].checked){
+										var radioid=radiobj[i].value;
+										datas._11_3_type=radioid;
+									}
+								}
+							}
+							//获取流水号
+							if(document.getElementById("number")!=null){
+								var number=document.getElementById("number").value;
+								datas.number=number;
+							}
+							//获取申请人信息
+							if(document.getElementById("personchoice")!=null){
+								var personobj=document.getElementById("personchoice");
+								var personname=personobj.options[personobj.selectedIndex].innerHTML;
+								if(personobj.options[personobj.selectedIndex].value==-1)
+								{
+									alert("申请人信息不能为空！");
+								}else{
+									datas._11_3_user=personname;
+								}
+							}
+							
+							//获取部门信息
+							if(document.getElementById("depchoice")!=null){
+								var depobj=document.getElementById("depchoice");
+								var depname=depobj.options[depobj.selectedIndex].innerHTML;
+								if(depobj.options[depobj.selectedIndex].value==-1){
+									alert("部门信息不能为空！");
+								}else{
+									datas._11_3_dix=depname;
+								}
+							}
+							//获取项目信息
+							if(document.getElementById("itemchoice")!=null){
+								var itemobj=document.getElementById("itemchoice");
+								var itemname=itemobj.options[itemobj.selectedIndex].innerHTML;
+								if(itemobj.options[itemobj.selectedIndex].value==-1){
+									alert("项目信息不能为空！");
+								}else{
+									datas._11_3_itemid=itemname;
+								}
+							}
+							//获取审批人信息
+							if(document.getElementById("spchoice")!=null){
+								var spobj=document.getElementById("spchoice");
+								var sprid=spobj.options[spobj.selectedIndex].value;
+								var sprname=spobj.options[spobj.selectedIndex].innerHTML;
+//								alert(sprid+":"+sprname);
+								datas.sprid=sprid;
+								datas.sprname=sprname;
+							}else{
+								alert("审批人不能为空!");
+							}
+							//获取日期
+							if(document.getElementById("datechoice")!=null){
+								var datechoice=document.getElementById("datechoice").value;
+								datas._11_3_date=datechoice;
+							}
+							//获取报销金额
+							if(document.getElementById("_11_3_price")!=null){
+								var price=document.getElementById("_11_3_price").value;
+								datas._11_3_price=price;
+							}else{
+								alert("报销金额不能为空！");
+							}
+							//获取剩余预算金额
+							if(document.getElementById("_11_3_shengyu")!=null){
+								var shengyu=document.getElementById("_11_3_shengyu").value;
+								datas._11_3_shengyu=shengyu;
+							}
+							//获取下一步审批信息
+							var flowid=document.getElementById("flowid").value;
+							var appkey=document.getElementById("appkey").value;
+							var appkey1=document.getElementById("appkey1").value;
+							var flowdatetype=document.getElementById("flowdatetype").value;
+							var flowdate=document.getElementById("flowdate").value;
+							datas.flowid=flowid;
+							datas.appkey=appkey;
+							datas.appkey1=appkey1;
+							datas.flowdatetype=flowdatetype;
+							datas.flowdate=flowdate;
+							//获取是否通知审批人员信息
+							var smsobj=document.getElementById("sms_info_box_work");
+							if(smsobj.checked) 
+							{
+								var smsid=smsobj.value;
+								//alert(smsid);
+								datas.sms_info_box_work=smsid;
+							}
+//							for(var key in datas){
+//								alert(key+":"+datas[key]);
+//							}
+							mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+									data:datas,
+									type:'post',
+									timeout:10000,
+									contentType:"application/x-www-form-urlencoded; charset=utf-8",
+									success:function(data)
+									{
+										alert(data);
+										var page = plus.webview.getWebviewById('main');
+//										alert(page.getURL());
+										// 隐藏父页面
+										plus.webview.currentWebview().opener().hide();
+										
+										//关闭审批列表页面
+										plus.webview.getWebviewById('tab-about-xjsp').close();
+										
+										// 关闭当前页
+										plus.webview.currentWebview().close();
+										
+										page.show();
+									},
+									error:function(xhr,type,errorThrown) {
+										plus.nativeUI.showWaiting().close();
+										mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+									}
+									
+								});
+//							      //显示原生等待框
+//							var nwaiting = plus.nativeUI.showWaiting();
+//							//后台创建webview并打开workclass_view.html
+//						    webviewShow = plus.webview.create("workclass_personnel.html","workclass_personnel",null,{splid:id,typeid:typeid});
+//						    //因后台需要ajax加载完数据之后jquery.mobile渲染,因此载入webview事件需延迟一些时间			    
+//						    setTimeout(function(){
+//						    	webviewShow.addEventListener("loaded", function() { //注册新webview的载入完成事件
+//						        nwaiting.close(); //新webview的载入完毕后关闭等待框
+//						        webviewShow.show("slide-in-right",150); //把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+//						    }, false);
+//						    },500);
+				      	});
+				      }
+      			
+      			var result = document.getElementById("datechoice");
+				var btn=document.getElementById("datechoice");
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new mui.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result.value = rs.value;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false);
+      		});
+      	},300);
+      		});
+ </script>
+</body>
+</html>

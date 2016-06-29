@@ -1,0 +1,19 @@
+
+@font-face {font-family: "iconfont";
+  src:url('../fonts/iconfont.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+}
+.icon-yusuanfenxi:before { content: "\e601"; color:#8A6DE9 ;}
+.icon-renwuguanli:before { content: "\e602"; color: #FFFF00;}
+.icon-gongzuorizhi:before { content: "\e605"; color: #2B2BD5;}
+.icon-xinzengjihua:before { content: "\e603"; color: #B0CC7F;}
+.icon-liuchengshenpi:before { content: "\e600"; color: #3388CC;}
+.icon-richeng:before { content: "\e604"; color: #2AC845;}
+.icon-renwu:before { content: "\e606"; color: #FFFF00;}

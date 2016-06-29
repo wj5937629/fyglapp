@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+	</head>
+
+	<body>
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height:530px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.ui-li-count{
+				padding-left: 45px;
+				}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">任务管理</h1>
+			<!--<button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">新增</button>-->
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
+					<a class="mui-control-item" href="#item1mobile">
+				进行中
+			</a>
+					<a class="mui-control-item" href="#item2mobile">
+				未完成
+			</a>
+					<a class="mui-control-item" href="#item3mobile">
+				已完成
+			</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active" >
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div  class="mui-scroll">
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/app.js" ></script>
+		<script type="text/javascript" src="../js/ip.js" ></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			mui.plusReady(function(){
+				
+			mui.ajax('http://'+ip+'/lajpoa/m/index.php',
+			{
+			data:{
+				account:app.getState().account,
+				ac:'duty',
+				fileurl:'plugin',
+				type:1
+			},
+			type:'post',
+			timeout:10000,
+			contentType:"application/x-www-form-urlencoded; charset=utf-8",
+			success:function(data)
+			{
+				alert(data);
+				var item1=document.getElementById("item1mobile");
+				item1.querySelector('.mui-scroll').innerHTML = data;
+			},
+			error:function(xhr,type,errorThrown) {
+				plus.nativeUI.showWaiting().close();
+				mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+			}
+			});
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+				});
+//				var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li><li></li></ul>';
+//				var html3 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第三个选项卡子项-1</li><li class="mui-table-view-cell">第三个选项卡子项-2</li><li class="mui-table-view-cell">第三个选项卡子项-3</li><li class="mui-table-view-cell">第三个选项卡子项-4</li><li class="mui-table-view-cell">第三个选项卡子项-5</li><li></li></ul>';
+				var item2 = document.getElementById('item2mobile');
+				var item3 = document.getElementById('item3mobile');
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					if (e.detail.slideNumber === 1) {
+						if (item2.querySelector('.mui-loading')) {
+							mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+								data:{
+									account:app.getState().account,
+									ac:'duty',
+									fileurl:'plugin',
+									type:2
+								},
+								type:'post',
+								timeout:10000,
+								contentType:"application/x-www-form-urlencoded; charset=utf-8",
+								success:function(data)
+								{
+									//alert(data);
+								setTimeout(function() {
+									item2.querySelector('.mui-scroll').innerHTML = data;
+								}, 500);
+								},
+								error:function(xhr,type,errorThrown) {
+									plus.nativeUI.showWaiting().close();
+									mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+								}
+							});
+						}
+					} else if (e.detail.slideNumber === 2) {
+						if (item3.querySelector('.mui-loading')) {
+							mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+								data:{
+									account:app.getState().account,
+									ac:'duty',
+									fileurl:'plugin',
+									type:3
+								},
+								type:'post',
+								timeout:10000,
+								contentType:"application/x-www-form-urlencoded; charset=utf-8",
+								success:function(data)
+								{
+								setTimeout(function() {
+								item3.querySelector('.mui-scroll').innerHTML = data;
+								}, 500);
+								},
+								error:function(xhr,type,errorThrown) {
+									plus.nativeUI.showWaiting().close();
+									mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+								}
+							});							
+						}
+					}
+				});
+				
+				$(".mui-scroll").on('tap','a',function(){
+					var splid=this.getAttribute('id');
+					var typeid=this.getAttribute('typename');
+				//显示原生等待框
+				var nwaiting = plus.nativeUI.showWaiting();
+				//后台创建webview并打开workclass_view.html
+			    webviewShow = plus.webview.create("workclass_duty.html","workclass_duty",null,{splid:splid,typeid:typeid});
+			    //因后台需要ajax加载完数据之后jquery.mobile渲染,因此载入webview事件需延迟一些时间			    
+			    setTimeout(function(){
+			    	webviewShow.addEventListener("loaded", function() { //注册新webview的载入完成事件
+			        nwaiting.close(); //新webview的载入完毕后关闭等待框
+			        webviewShow.show("slide-in-right",150); //把新webview窗体显示出来，显示动画效果为速度150毫秒的右侧移入动画
+			    }, false);
+			    },500);
+			});
+			})(mui);
+			
+		</script>
+
+	</body>
+
+</html>

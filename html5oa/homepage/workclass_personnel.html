@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<link rel="stylesheet" href="../css/jquery.mobile-1.4.0.min.css">
+	<link rel="stylesheet" href="../css/list.css">
+	<link rel="stylesheet" href="../css/mui.min.css">
+	
+</head>
+<body id="workclass_body">
+ <script src="../js/mui.min.js"></script>
+  <script type="text/javascript" src="../js/app.js" ></script>
+ <script type="text/javascript" src="../js/ip.js" ></script>
+ <script src="../js/jquery.js"></script>
+ <script>
+ 	mui.init({
+				swipeBack: false
+			});
+ 	mui.plusReady(function(){
+      		var self=plus.webview.currentWebview();
+      		var id=self.splid;
+      		var typeid=self.typeid;
+      		
+      		mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+						data:{
+							splid:id,
+							ac:'workclass',
+							fileurl:'plugin',
+							domethod:'personnel',
+							type:typeid
+						},
+						type:'post',
+						timeout:10000,
+						contentType:"application/x-www-form-urlencoded; charset=utf-8",
+						success:function(data)
+						{
+							//alert(data);
+								document.getElementById("workclass_body").innerHTML=data;
+								$.getScript('../js/jquery.mobile-1.4.0.min.js',function(){
+									//alert("loading success");
+								});
+//								$.getScript('')
+						},
+						error:function(xhr,type,errorThrown) {
+							plus.nativeUI.showWaiting().close();
+							mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+						}
+						
+					});
+      	});
+      	//延迟500ms之后执行$(document).ready()事件获取相应的标签
+      	setTimeout(function(){
+      		$(document).ready(function(){
+      			document.getElementById("tjsp").addEventListener('tap',function(){
+				      		//alert("tjsp is running");
+				      		var savetype=document.getElementById("savetype").value;
+				      		var type=document.getElementById("type").value;
+				      		var title=document.getElementById("title").value;
+				      		var workid=document.getElementById("workid").value;
+				      		var typeid=document.getElementById("typeid").value;
+				      		var oldappkey=document.getElementById("oldappkey").value;
+				      		var oldappkey1=document.getElementById("oldappkey1").value;
+				      		var perid=document.getElementById("perid").value;
+				      		var oldappflow=document.getElementById("oldappflow").value;
+				      		var content=document.getElementById("content").value;
+				      		var pkeys = document.getElementsByName("pkey");
+							for(var i=0;i<pkeys.length;i++){
+							if(pkeys[i].checked){
+								var pkey=pkeys[i].value;
+							}
+							}
+							var wherestr=document.getElementById("wherestr").value;
+							if(wherestr=="false")
+							{
+								var stafftype=document.getElementById("stafftype").value;
+								var staff=document.getElementById("staff").value;
+								//下一步流程所需参数
+								var flowid=document.getElementById("flowid").value;
+								var appkey=document.getElementById("appkey").value;
+								var appkey1=document.getElementById("appkey1").value;
+								var flowdatetype=document.getElementById("flowdatetype").value;
+								var flowdate=document.getElementById("flowdate").value;
+								var ajaxdata={
+										ac:'workclass',
+										fileurl:'plugin',
+										domethod:'personnel',
+										savetype:savetype,
+										perid:perid,
+										content:content,
+										pkey:pkey,
+										workid:workid,
+										typeid:typeid,
+										oldappkey:oldappkey,
+										oldappkey1:oldappkey1,
+										type:type,
+										stafftype:stafftype,
+										staff:staff,
+										flowid:flowid,
+										appkey:appkey,
+										appkey1:appkey1,
+										flowdatetype:flowdatetype,
+										flowdate:flowdate,
+										oldappflow:oldappflow
+								};
+							}else{
+								ajaxdata={
+									ac:'workclass',
+										fileurl:'plugin',
+										domethod:'personnel',
+										savetype:savetype,
+										perid:perid,
+										content:content,
+										pkey:pkey,
+										workid:workid,
+										typeid:typeid,
+										oldappkey:oldappkey,
+										oldappkey1:oldappkey1,
+										type:type,
+										oldappflow:oldappflow
+								};
+							}
+							//alert(pkey);
+							mui.ajax('http://'+ip+'/lajpoa/m/index.php',{
+									data:ajaxdata,
+									type:'post',
+									timeout:10000,
+									contentType:"application/x-www-form-urlencoded; charset=utf-8",
+									success:function(data)
+									{
+										//alert(data);
+											document.getElementById("workclass_body").innerHTML=data;
+//											$.getScript('../js/jquery.mobile-1.4.0.min.js',function(){
+//												//alert("loading success");
+//											});
+									},
+									error:function(xhr,type,errorThrown) {
+										plus.nativeUI.showWaiting().close();
+										mui.alert("<网络连接失败，请重新尝试一下>", "错误", "OK", null);
+									}
+									
+								});
+				      	});
+      		});
+      	},500);
+ </script>
+ <script>
+ 	function backToIndex(){
+ 		//alert("fanhui is running");
+   		var page = plus.webview.getWebviewById('main');
+   		//alert(page.getURL());
+           	// 隐藏父页面
+            plus.webview.currentWebview().opener().hide();
+            
+            //关闭审批列表页面
+            plus.webview.getWebviewById('tab-about-fysp').close();
+           	
+            // 关闭当前页
+            plus.webview.currentWebview().close();
+            
+            page.show();
+ 	}
+ </script>
+ <!--<script>
+ function checkbox1(value){
+		if(value==1){
+			document.getElementById("div1").style.display="block";
+			document.getElementById("div2").style.display="none";
+		}else{
+			document.getElementById("div1").style.display="none";
+		}
+	}	
+ </script>-->
+</body>
+</html>

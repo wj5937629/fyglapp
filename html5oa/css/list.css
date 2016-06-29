@@ -1,0 +1,317 @@
+.bg-style-sy{background:url('images/bg.jpg');-webkit-background-size:100% auto;}
+.um-vp {
+	margin: 0;
+	padding:0;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-select:none
+}
+*
+{
+	margin: 0;
+	padding:0;
+}
+.um-vp .up{
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	position: absolute;
+	border: 0
+}
+.c-wh
+{
+	background-color:#fdfdfd;
+}
+.ub-ver
+{
+	-webkit-box-orient:vertical;
+	box-orient:vertical;
+}
+.uh,.uf {
+	display: block;
+	width:100%;
+}
+
+.up .uh,.up .uf {
+	position: relative
+}
+
+
+
+.uh .ut,.uf .ut {
+	padding: .6em 1em .8em;
+	margin: 0;
+}
+.c-org
+{
+	background-color:#2394d9;
+}
+.c-m1
+{
+	
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 82%, rgba(255,255,255,0.2) 60%, rgba(255,255,255,0) 100%);
+}
+.t-wh
+{
+	color:white;
+}
+.ub
+{
+	display: -webkit-box !important;
+	display: box !important;
+	position:relative;
+}
+.ub-f1
+{
+	position:relative;
+	-webkit-box-flex: 1; 
+	box-flex: 1;
+}
+.ulev0 {
+	font-size: 1.0em !important;
+}
+.ut-s
+{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	outline: 0 !important
+}
+.tx-c
+{
+ text-align:center;
+}
+.c-bla
+{
+	background-color:#000;
+}
+.c-m12
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.2) ), color-stop(49%, rgba(255,255,255,0.1) ),color-stop(50%, rgba(255, 255, 255, 0) ), to(rgba(255, 255, 255, 0) ));
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0) 50%,   rgba(255,255,255,0) 100%);
+	background-image: linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0) 50%,   rgba(255,255,255,0) 100%);
+}
+.tab-b
+{
+	height:3em;
+}
+.ub-img5
+{
+	-webkit-background-size:auto 100%;
+	background-size:auto 100%;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.tab
+{
+	height:3em;
+	padding:0.2em 0.1em;
+}
+
+.tab1s
+{
+	height:2.5em;
+	padding:0.2em 0.2em;
+	line-height:2.5em;
+}
+.tab1s input
+{
+	height:2.2em;
+	line-height:1.2em;
+	width:15em;
+	margin-left:1em;
+	margin-right:0.5em;
+	font-size:0.9em;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+	border: 1px solid #d2d4d5;
+    -webkit-border-bottom-right-radius: 5px;
+	background-color:#f2f3f4;
+}
+.tab-act
+{
+	background-color:rgba(255,255,255,0.1) !important;
+	border-radius:0.3em;
+	border: 0px;
+	background-image: none;
+}
+
+.tp-info{
+	background: url(res-apple/info.png) 50% 50% no-repeat;
+}
+
+.tp-infoon{
+	background: url(res-apple/info-act.png) 50% 50% no-repeat;
+}
+
+.tp-menu{
+	background: url(res-apple/menu.png) 50% 50% no-repeat;
+}
+
+.tp-menuon{
+	background: url(res-apple/menu-act.png) 50% 50% no-repeat;
+}
+
+.tp-home{
+	background: url(res-apple/home.png) 50% 50% no-repeat;
+}
+
+.tp-homeon{
+	background: url(res-apple/home-act.png) 50% 50% no-repeat;
+}
+
+.tp-set{
+	background: url(res-apple/set.png) 50% 50% no-repeat;
+}
+
+.tp-seton{
+	background: url(res-apple/set-act.png) 50% 50% no-repeat;
+}
+
+.tp-shop{
+	background: url(res-apple/shop.png) 50% 50% no-repeat;
+}
+
+.tp-shopon{
+	background: url(res-apple/shop-act.png) 50% 50% no-repeat;
+}
+
+.tp-talk{
+	background: url(res-apple/talk.png) 50% 50% no-repeat;
+}
+
+.tp-talkon{
+	background: url(res-apple/talk-act.png) 50% 50% no-repeat;
+}
+.uinn
+{
+	padding:0.5em;
+	margin:0;
+}
+.ulev-2 {
+	font-size: 0.699em !important;
+}
+.uh .btn-l,.uf .btn-l {
+	/*position: absolute;*/
+	left: 10px;
+	top: .55em
+}
+
+.uh .btn-r,.uf .btn-r {
+	position: absolute;
+	right: 10px;
+	top: .55em
+}
+
+
+.uh .btn,.uf .btn{
+	display: inline-block;
+	font-size: .8125em;
+	margin: 0
+}
+
+.btn
+{
+	font-size: 0.8em;
+	text-align:center;
+}
+.btn-a
+{
+	background-image:url('res-apple/app-btn-l.png'),url('res-apple/app-btn-c.png'),url('res-apple/app-btn-r.png');
+	background-repeat:no-repeat,repeat,no-repeat;
+	-webkit-background-clip: padding-box,content-box,padding-box;
+	background-clip: padding-box,content-box,padding-box;
+	-webkit-background-size:1.2em 100%,auto 100%,0.5em 100%;
+	background-size:1.2em 100%,auto 100%,0.5em 100%;
+	background-position:left,center,right;
+	padding:0 0.5em 0 1.2em;
+	min-height:2.2em;
+}
+
+.btn-n
+{
+	background-image:url('res-apple/app-rbt-l.png'),url('res-apple/app-rbt-c.png'),url('res-apple/app-rbt-r.png');
+	background-repeat:no-repeat,repeat,no-repeat;
+	-webkit-background-clip: padding-box,content-box,padding-box;
+	background-clip: padding-box,content-box,padding-box;
+	-webkit-background-size:0.4em 100%,auto 100%,0.4em 100%;
+	background-size:0.4em 100%,auto 100%,0.4em 100%;
+	background-position:left,center,right;
+	padding:0 0.4em;
+	min-height:2.2em;
+}
+.ub-ac
+{
+	-webkit-box-align:center;
+	box-align:center;
+}
+.ulim {
+	max-width: 5em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow:hidden;
+}
+.ubb
+{
+	border-bottom:1px solid;
+}
+.b-gra
+{
+	border-color:#ABABAB;
+}
+.t-bla
+{
+	color:black;
+}
+.uba
+{
+	border:1px solid;
+	
+}
+.us {
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3)
+}
+.lis-th{
+	width:4em;
+	margin:0em 0.4em 0em 0px;
+	min-height:4em;
+}
+.ub-img
+{
+	-webkit-background-size:contain;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.im{
+	background-image: url('img/icon.png');
+}
+.ulev1 {
+	font-size: 1.2em !important;
+}
+.ulev-1 {
+	font-size: 0.8em !important;
+}
+.umh4
+{
+	min-height:2em;
+}
+.t-gra{
+	color:#838695;
+}
+ul,li{
+	list-style: none;
+}
+.lis , .lis-m div
+{ 
+	padding:0.4em;
+}
+.umw4
+{
+	min-width:3.2em;
+}

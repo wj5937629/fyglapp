@@ -1,0 +1,338 @@
+{
+	"login.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.enterfocus.js",
+			"images/sinaweibo.png",
+			"images/weixin.png",
+			"images/qq.png",
+			"login.php",
+			"js/ip.js",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"main.html",
+			"reg.html",
+			"login.php",
+			"forget_password.html"
+		]
+	},
+	"main.html": {
+		"refer": [
+			"setting.html",
+			"tab-webview-subpage-about.html",
+			"tab-webview-subpage-setting.html",
+			"tab-webview-subpage-chat.html",
+			"tab-webview-subpage-contact.html",
+			"programsetting/tab-webview-subpage-setting.html",
+			"contact/tab-webview-subpage-contact.html",
+			"message/tab-webview-subpage-chat.html",
+			"homepage/tab-webview-subpage-about.html"
+		],
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"tab-webview-subpage-about.html",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"homepage/tab-webview-subpage-about.html"
+		]
+	},
+	"setting.html": {
+		"resources": [
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"fonts/mui.ttf",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/mui.locker.js",
+			"js/feedback.js",
+			"css/feedback-page.css",
+			"js/feedback-page.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/iconfont-tianjia.png"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"reg.html": {
+		"refer": [
+			"login.html"
+		],
+		"resources": [
+			"fonts/mui.ttf"
+		]
+	},
+	"tab-webview-subpage-contact.html": {
+		"resources": [
+			"css/mui.min.css",
+			"images/60x60.gif"
+		]
+	},
+	"tab-webview-subpage-setting.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/mui.locker.js",
+			"js/feedback.js",
+			"js/feedback-page.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"test.html",
+			"js/app.js"
+		],
+		"refer": [
+			"login.html",
+			"test.html",
+			"tab-webview-subpage-chat.html"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"tab-webview-subpage-about.html": {
+		"resources": [
+			"fonts/iconfont.ttf",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/app.js"
+		],
+		"refer": [
+			"test.html",
+			"tab-with-viewpagerindicator.html",
+			"tab-about-fysp.html"
+		]
+	},
+	"tab-with-viewpagerindicator.html": {
+		"resources": [
+			"css/app.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/app.js",
+			"js/ip.js"
+		],
+		"refer": [
+			"test.html",
+			"workclass_view.php",
+			"workclass_view.html"
+		]
+	},
+	"workclass_view.php": {
+		"resources": [
+			"css/list.css",
+			"css/jquery.mobile-1.4.0.min.css",
+			"js/jquery.mobile-1.4.0.min.js",
+			"js/jquery.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/app.js",
+			"js/ip.js"
+		]
+	},
+	"workclass_view.html": {
+		"resources": [
+			"css/list.css",
+			"css/jquery.mobile-1.4.0.min.css",
+			"js/jquery.mobile-1.4.0.min.js",
+			"js/jquery.js",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"tab-about-fysp.html": {
+		"resources": [
+			"css/app.css",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"workclass_view.html"
+		]
+	},
+	"programsetting/tab-webview-subpage-setting.html": {
+		"resources": [
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"js/app.js",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"contact/tab-webview-subpage-contact.html": {
+		"resources": [
+			"images/60x60.gif",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"homepage/tab-webview-subpage-about.html": {
+		"resources": [
+			"js/ip.js",
+			"fonts/iconfont.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"homepage/tab-about-fysp.html",
+			"homepage/test.html",
+			"homepage/tab-about-xjsp.html",
+			"homepage/tab-about-ysfx.html",
+			"homepage/tab-about-taskmanager.html"
+		]
+	},
+	"homepage/workclass_view.html": {
+		"resources": [
+			"css/list.css",
+			"css/jquery.mobile-1.4.0.min.css",
+			"js/jquery.js",
+			"js/jquery.mobile-1.4.0.min.js",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"homepage/workclass_personnel.html"
+		]
+	},
+	"homepage/tab-about-fysp.html": {
+		"resources": [
+			"css/app.css",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"homepage/workclass_view.html"
+		]
+	},
+	"homepage/workclass_personnel.html": {
+		"resources": [
+			"js/jquery.mobile-1.4.0.min.js",
+			"js/app.js",
+			"css/list.css",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/jquery.mobile-1.4.0.min.css",
+			"css/mui.min.css",
+			"js/jquery.js",
+			"fonts/mui.ttf"
+		]
+	},
+	"message/tab-webview-subpage-chat.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"homepage/test.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"homepage/tab-about-xjsp.html": {
+		"resources": [
+			"css/app.css",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"homepage/workclass_view.html",
+			"homepage/workclass_add.html"
+		]
+	},
+	"homepage/workclass_add.html": {
+		"resources": [
+			"css/list.css",
+			"js/jquery.js",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/WdatePicker.js",
+			"js/mui.picker.min.js",
+			"css/mui.picker.min.css"
+		]
+	},
+	"homepage/tab-about-ysfx.html": {
+		"resources": [
+			"css/app.css",
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jquery.js",
+			"js/style-table.js",
+			"js/jquery-1.2.6.min.js",
+			"css/css-table.css"
+		]
+	},
+	"homepage/tab-about-taskmanager.html": {
+		"resources": [
+			"css/app.css",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"homepage/workclass_duty.html"
+		]
+	},
+	"homepage/workclass_duty.html": {
+		"resources": [
+			"css/list.css",
+			"css/jquery.mobile-1.4.0.min.css",
+			"js/jquery.mobile-1.4.0.min.js",
+			"js/jquery.js",
+			"js/app.js",
+			"js/ip.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	}
+}
